@@ -20,10 +20,12 @@ def registrarProductos(request):
     tipo_producto = request.POST["txttipoproducto"]
     lote = request.POST["txtlote"]
     marca = request.POST["txtmarca"]
+    id_sucursal = request.POST["txtidsucursal"]
 
 
     guardarproducto = Producto.objects.create(id_producto=id_producto, nombre=nombre, descripcion=descripcion,
-                                            precio=precio, tipo_producto=tipo_producto, lote=lote, marca=marca )
+                                            precio=precio, tipo_producto=tipo_producto, lote=lote, marca=marca, 
+                                            id_sucursal = id_sucursal)
 
     return redirect("productos")
 
@@ -41,6 +43,7 @@ def editarProductos(request):
     tipo_producto = request.POST["txttipoproducto"]
     lote = request.POST["txtlote"]
     marca = request.POST["txtmarca"]
+    id_sucursal = request.POST["txtidsucursal"]
 
 
     productos = Producto.objects.get(id_producto = id_producto)
@@ -50,6 +53,7 @@ def editarProductos(request):
     productos.tipo_producto = tipo_producto
     productos.lote = lote
     productos.marca = marca
+    productos.id_sucursal = id_sucursal
     
     productos.save()
 
