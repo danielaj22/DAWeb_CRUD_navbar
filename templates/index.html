@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tatus</title>
+</head>
+<body>
+
+        {% extends "base.html" %}
+
+        {% load static %}
+
+        {% block titulo %}  <title>Tatus Daniela Jurado</title>  {% endblock titulo %}
+
+        {% block cuerpo %}  
+        
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <h1>Tatus Daniela Jurado</h1>
+        
+
+            <img class="w-50" src="{% static 'img/inicio.jpg' %}" alt="hoa" width="100" height="auto">
+
+        </div>
+        {% endblock cuerpo %}
+
+        
+
+</body>
+</html>
