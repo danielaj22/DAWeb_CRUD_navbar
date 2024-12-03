@@ -14,7 +14,8 @@
 - sucursales
 - ![image](https://github.com/user-attachments/assets/127f6e09-f6ef-4295-aa30-3d3500dcbfcc)
 - servicios
-- ![image](https://github.com/user-attachments/assets/29d477d1-95bc-4149-8b9b-3ccc8e82da25)
+- ![image](https://github.com/user-attachments/assets/02bb5ebe-686c-4246-a2a9-8e736b51ea02)
+
 
 
 
