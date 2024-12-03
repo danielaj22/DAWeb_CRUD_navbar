@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+
+
+{% block cuerpo %}
+{% load static %}
+
+<div class="row"><!-- La fila -->
+
+    <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4"><!-- Columna izquierda -->
+        <h1> Ingresar </h1>
+
+        <div class="card"><!-- La tarjeta --> 
+            <div class="card-body">
+                <form action="registrarServicios/" method="POST"> {% csrf_token %} <!-- Falta accion -->
+                    
+                    <div class="form-group">
+                        <input type="text" id="txtid" name="txtid" class="form-control" placeholder="Id Servicio" minlength="1" maxlength="100" required>
+                    </div>
+
+                    <div class="form-group py-3">
+                        <input type="text" id="txtidc" name="txtidc" class="form-control" placeholder="Id Cliente" maxlength="100" required>
+                    </div>
+
+                    <div class="form-group py-3">
+                        <input type="text" id="txtide" name="txtide" class="form-control" placeholder="Id Empleado" maxlength="100" required>
+                    </div>
+
+                    <div class="form-group py-3">
+                        <input type="text" id="txttipo" name="txttipo" class="form-control" placeholder="Tipo" maxlength="100" required>
+                    </div>
+                    <div class="form-group py-3">
+                        <input type="text" id="txtprecio" name="txtprecio" class="form-control" placeholder="precio" maxlength="100" required>
+                    </div>
+
+                    <div class="form-group py-3">
+                        <input type="date" id="txtfecha" name="txtfecha" class="form-control" placeholder="Fecha del servicio" maxlength="100" required>
+                    </div>
+
+                    <div class="form-group py-2">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div><!-- La tarjeta -->
+
+    </div><!-- Columna izquierda -->
+    <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8"><!-- Columna derecha -->
+            <h1> Listado de Servicios </h1>
+            <img class="w-59" src="{% static 'img/servicio.jpg' %}" alt="nava" width="500" height="200">
+            <!-- La tabla -->
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Id_Servicio</th>
+                    <th scope="col">Id_cliente</th>
+                    <th scope="col">Id_Empleado</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">precio</th>
+                    <th scope="col">Fecha del servicio</th>
+                    <th>Opciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for s in servicios %}
+                    <tr>
+                        <td>{{s.Id_Servicio}}</td>
+                        <td>{{s.Id_cliente}} </td>
+                        <td>{{s.Id_Empleado}}</td>
+                        <td>{{s.tipo}}</td>
+                        <td>{{s.precio}}</td>
+                        <td>{{s.fecha_serv}}</td>
+                        <td> <a href="seleccionarServicios/{{s.Id_Servicio}}" class="btn btn-info">Editar</a> </td>  <!-- Falta codigo -->
+                        <td> <a href="borrarServicios/{{s.Id_Servicio}} " class="btn btn-danger">Borrar</a> </td>  <!-- Falta codigo -->
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                </table>
+            <!-- La tabla -->
+    </div><!-- Columna derecha -->
+
+</div><!-- La fila -->
+
+{% endblock %}

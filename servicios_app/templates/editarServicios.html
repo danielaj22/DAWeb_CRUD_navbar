@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block cuerpo %} 
+
+<div class="row"> <!-- fila en editar -->
+    <div class="col-md-4 offset-md-4">
+        <h2>Editar Servicios</h2>
+        <!-- Aqui codigo tarjeta -->
+        <div class="card"><!-- La tarjeta -->
+            <div class="card-body">
+                <form action="/editarServicios/" method="POST"> {% csrf_token %} <!-- Falta accion -->
+                    <div class="form-group">
+                        <input type="text" id="txtid" name="txtid" class="form-control" 
+                        value="{{servicios.Id_Servicio}}" minlength="1" maxlength="6" readonly required>
+                    </div>
+                    <div class="form-group py-3">
+                        <input type="text" id="txtidc" name="txtidc" class="form-control" 
+                        value="{{servicios.Id_cliente}}" maxlength="100" required>
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="text" id="txtide" name="txtide" class="form-control" 
+                        min="1" max="9" value="{{servicios.Id_Empleado}}" required>
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="text" id="txttipo" name="txttipo" class="form-control" 
+                        min="1" max="9" value="{{servicios.tipo}}" required>
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="text" id="txtprecio" name="txtprecio" class="form-control" 
+                        min="1" max="9" value="{{servicios.precio}}" required>
+                    </div>
+                    
+                    <div class="form-group py-2">
+                        <input type="date" id="txtfecha" name="txtfecha" class="form-control" 
+                        min="1" max="9" value="{{servicios.fecha_serv}}" required>
+                    </div>
+                    <div class="form-group py-2">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div><!-- La tarjeta -->
+        <!-- Aqui codigo tarjeta -->
+    </div>
+
+</div> <!-- fila en editar -->
+
+{% endblock %}
